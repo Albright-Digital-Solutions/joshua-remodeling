@@ -38,7 +38,7 @@ export function DrywallPainting() {
       city="San Antonio, TX"
       metaDescription="Professional drywall repair and painting services in San Antonio, TX. Expert patching of holes, water damage, cracks, and texture matching. Licensed & insured. Call (210) 992-5170 for a free estimate."
       description="Expert drywall patching, texture matching, and interior painting from San Antonio's trusted, licensed, and insured remodeling professionals at Joshua's Remodeling & Repairs."
-      heroImage="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2670&auto=format&fit=crop"
+      heroImage="/drywall-painting.jpg"
       icon={<Paintbrush className="w-8 h-8 text-white" />}
       schemaServiceType="Drywall Repair and Painting"
       benefits={[

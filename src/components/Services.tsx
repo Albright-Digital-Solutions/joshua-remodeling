@@ -6,7 +6,7 @@ const services = [
     title: "Drywall & Painting",
     description: "Expert patching of holes, cracks, and damage, plus touch-up painting.",
     icon: Paintbrush,
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop",
+    image: "/drywall-painting.jpg",
     href: "/services/drywall-painting"
   },
   {
