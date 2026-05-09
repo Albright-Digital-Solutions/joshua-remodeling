@@ -38,7 +38,7 @@ export function CarpentryWoodwork() {
       city="San Antonio, TX"
       metaDescription="Carpentry and woodwork services in San Antonio TX — fence repair, deck building, trim installation, custom shelving, and wood rot repair. Licensed & insured. Call (210) 992-5170."
       description="From fence and deck repair to custom shelving and trim installation, Joshua's Remodeling & Repairs delivers quality carpentry and woodwork throughout San Antonio and Bexar County."
-      heroImage="https://images.unsplash.com/photo-1533036667954-469b6db9de5d?q=80&w=2670&auto=format&fit=crop"
+      heroImage="/carpentry-gazebo.jpg"
       icon={<Hammer className="w-8 h-8 text-white" />}
       schemaServiceType="Carpentry and Woodwork"
       benefits={[

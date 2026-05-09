@@ -27,7 +27,7 @@ const services = [
     title: "Carpentry & Woodwork",
     description: "Fence and deck repair, trim installation, custom shelving, and minor door repair.",
     icon: Hammer,
-    image: "https://images.unsplash.com/photo-1533036667954-469b6db9de5d?q=80&w=800&auto=format&fit=crop",
+    image: "/carpentry-gazebo.jpg",
     href: "/services/carpentry-woodwork"
   },
   {
