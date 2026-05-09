@@ -15,6 +15,7 @@ import { Footer } from './components/Footer';
 
 // Pages
 import { AboutPage } from './pages/AboutPage';
+import { ReviewsPage } from './pages/ReviewsPage';
 import { DrywallPainting } from './pages/services/DrywallPainting';
 import { MinorPlumbing } from './pages/services/MinorPlumbing';
 import { FixtureInstallation } from './pages/services/FixtureInstallation';
@@ -54,6 +55,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/services/drywall-painting" element={<DrywallPainting />} />
             <Route path="/services/minor-plumbing" element={<MinorPlumbing />} />
             <Route path="/services/fixture-installation" element={<FixtureInstallation />} />
