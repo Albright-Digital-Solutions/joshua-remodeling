@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { Heart, Globe, ArrowRight } from "lucide-react";
+import { TexturedSection } from "./TexturedSection";
 
 export function About() {
   return (
-    <section id="about" className="py-24 bg-gray-50">
+    <TexturedSection id="about" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -142,6 +143,6 @@ export function About() {
         </motion.div>
 
       </div>
-    </section>
+    </TexturedSection>
   );
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { SplitText } from "./SplitText";
+import { TexturedSection } from "./TexturedSection";
 
 const services = [
   {
@@ -161,7 +162,7 @@ function TiltCard({ service, index }: { service: typeof services[0]; index: numb
 
 export function Services() {
   return (
-    <section id="services" className="py-28 bg-white relative overflow-hidden">
+    <TexturedSection id="services" className="py-28 relative overflow-hidden">
       {/* Decorative background blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-orange-50 blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-amber-50 blur-3xl opacity-50 translate-y-1/3 -translate-x-1/3 pointer-events-none" />
@@ -201,6 +202,6 @@ export function Services() {
           ))}
         </div>
       </div>
-    </section>
+    </TexturedSection>
   );
 }

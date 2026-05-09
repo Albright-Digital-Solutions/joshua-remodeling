@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { TexturedSection } from "./TexturedSection";
 
 const REVIEWS = [
   {
@@ -89,7 +90,7 @@ export function ReviewBanner() {
   const doubled = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="bg-gray-50 border-y border-gray-100 py-10 overflow-hidden">
+    <TexturedSection className="border-y border-gray-100 py-10 overflow-hidden">
       {/* Section label */}
       <div className="text-center mb-6">
         <div className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 uppercase tracking-widest">
@@ -139,6 +140,6 @@ export function ReviewBanner() {
           animation-play-state: paused;
         }
       `}</style>
-    </section>
+    </TexturedSection>
   );
 }
