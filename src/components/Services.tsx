@@ -34,7 +34,7 @@ const services = [
     title: "Rental Make-Ready",
     description: "Comprehensive services to quickly prepare rental properties for new tenants.",
     icon: Home,
-    image: "https://images.unsplash.com/photo-1628192203649-65cf8fa32bda?q=80&w=800&auto=format&fit=crop",
+    image: "/rental-floor-replacement.jpg",
     href: "/services/rental-make-ready"
   },
   {
