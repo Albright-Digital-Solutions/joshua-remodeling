@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Star, Quote, ExternalLink, ThumbsUp } from "lucide-react";
 import { useEffect } from "react";
+import { TexturedSection } from "../components/TexturedSection";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -224,7 +225,7 @@ export function ReviewsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <TexturedSection className="min-h-screen">
 
       {/* ── Hero ── */}
       <section className="bg-gray-900 pt-32 pb-20 text-center relative overflow-hidden">
@@ -378,6 +379,6 @@ export function ReviewsPage() {
           </div>
         </div>
       </section>
-    </div>
+    </TexturedSection>
   );
 }

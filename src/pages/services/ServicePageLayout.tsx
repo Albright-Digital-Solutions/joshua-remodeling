@@ -1,6 +1,7 @@
 import { ReactNode, useEffect } from "react";
 import { Link } from "react-router";
 import { ArrowLeft, CheckCircle2, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
+import { TexturedSection } from "../../components/TexturedSection";
 
 export interface FAQ {
   question: string;
@@ -113,7 +114,7 @@ export function ServicePageLayout({
   }, [title, city, metaDescription, schemaServiceType, faqs, fullTitle]);
 
   return (
-    <div className="bg-white">
+    <TexturedSection className="min-h-screen">
       {/* Service Hero */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -263,6 +264,6 @@ export function ServicePageLayout({
           </div>
         </div>
       </section>
-    </div>
+    </TexturedSection>
   );
 }
