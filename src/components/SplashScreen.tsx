@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const LOGO_URL =
   "https://i0.wp.com/joshua-remodeling.com/wp-content/uploads/2026/02/ca782439-5f10-4884-968b-136fdc3bc12d-edited.png?fit=1191%2C670&ssl=1";
