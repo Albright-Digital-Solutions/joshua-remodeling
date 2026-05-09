@@ -10,6 +10,7 @@ import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { OurStory } from './components/OurStory';
 import { Testimonials } from './components/Testimonials';
+import { ReviewBanner } from './components/ReviewBanner';
 import { Footer } from './components/Footer';
 
 // Pages
@@ -35,6 +36,7 @@ function Home() {
   return (
     <>
       <Hero />
+      <ReviewBanner />
       <Services />
       <OurStory />
       <Testimonials />
