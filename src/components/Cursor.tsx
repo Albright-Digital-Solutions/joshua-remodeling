@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue } from "motion/react";
 
+const SIZE      = 60;    // ~dime size in px
 const LASER     = "#ff2020";
-const GLOW_LINE = `0 0 3px 1px rgba(255,20,20,0.9), 0 0 10px 3px rgba(255,20,20,0.5), 0 0 20px 6px rgba(255,20,20,0.2)`;
-const GLOW_DOT  = `0 0 0 2px #ff2020, 0 0 8px 4px rgba(255,20,20,0.8), 0 0 18px 8px rgba(255,20,20,0.35)`;
+const GLOW_LINE = `0 0 3px 1px rgba(255,20,20,0.9), 0 0 8px 3px rgba(255,20,20,0.4)`;
+const GLOW_RING = `0 0 4px 2px rgba(255,20,20,0.7), 0 0 10px 4px rgba(255,20,20,0.3)`;
+const GLOW_DOT  = `0 0 0 1.5px #ff2020, 0 0 6px 3px rgba(255,20,20,0.8)`;
 
 export function Cursor() {
   const x = useMotionValue(-500);
@@ -13,14 +15,9 @@ export function Cursor() {
   const [isClicking, setIsClicking] = useState(false);
 
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      x.set(e.clientX);
-      y.set(e.clientY);
-      setIsVisible(true);
-    };
-    const onDown = () => setIsClicking(true);
-    const onUp   = () => setIsClicking(false);
-
+    const onMove  = (e: MouseEvent) => { x.set(e.clientX); y.set(e.clientY); setIsVisible(true); };
+    const onDown  = () => setIsClicking(true);
+    const onUp    = () => setIsClicking(false);
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mousedown", onDown);
     window.addEventListener("mouseup",   onUp);
@@ -31,7 +28,6 @@ export function Cursor() {
     };
   }, []);
 
-  // Watch for hover on interactive elements
   useEffect(() => {
     const onEnter = () => setIsHovering(true);
     const onLeave = () => setIsHovering(false);
@@ -52,119 +48,69 @@ export function Cursor() {
 
   if (!isVisible) return null;
 
+  const scale = isClicking ? 0.85 : isHovering ? 1.18 : 1;
+  const size  = SIZE * scale;
+
   return (
-    <>
-      {/* ── Horizontal laser line ──────────────────────────────────── */}
-      <motion.div
-        className="fixed left-0 pointer-events-none z-[9997]"
+    <motion.div
+      className="fixed pointer-events-none z-[9999]"
+      style={{
+        x,
+        y,
+        translateX: "-50%",
+        translateY: "-50%",
+        width:  size,
+        height: size,
+      }}
+      animate={{ width: size, height: size, opacity: isClicking ? 0.75 : 1 }}
+      transition={{ duration: 0.12, ease: "easeOut" }}
+    >
+      {/* ── Outer ring ── */}
+      <div
+        className="absolute inset-0 rounded-full"
         style={{
-          y,
-          top:    "-1px",   // center the 2px line on cursor Y
-          width:  "100vw",
-          height: "2px",
-          background: `linear-gradient(to right, transparent 0%, ${LASER} 8%, ${LASER} 92%, transparent 100%)`,
-          boxShadow: GLOW_LINE,
-          opacity: isClicking ? 0.6 : 1,
+          border:    `1.5px solid ${LASER}`,
+          boxShadow: GLOW_RING,
         }}
       />
 
-      {/* ── Vertical laser line ────────────────────────────────────── */}
-      <motion.div
-        className="fixed top-0 pointer-events-none z-[9997]"
+      {/* ── Horizontal laser line (across full diameter, centered) ── */}
+      <div
+        className="absolute left-0 right-0"
         style={{
-          x,
-          left:   "-1px",   // center the 2px line on cursor X
-          width:  "2px",
-          height: "100vh",
-          background: `linear-gradient(to bottom, transparent 0%, ${LASER} 8%, ${LASER} 92%, transparent 100%)`,
-          boxShadow: GLOW_LINE,
-          opacity: isClicking ? 0.6 : 1,
+          top:       "50%",
+          height:    "1.5px",
+          marginTop: "-0.75px",
+          background: LASER,
+          boxShadow:  GLOW_LINE,
         }}
       />
 
-      {/* ── Center dot — laser target point ───────────────────────── */}
-      <motion.div
-        className="fixed pointer-events-none z-[9999] rounded-full bg-white"
+      {/* ── Vertical laser line (top to bottom, centered) ── */}
+      <div
+        className="absolute top-0 bottom-0"
         style={{
-          x,
-          y,
-          translateX: "-50%",
-          translateY: "-50%",
-          boxShadow: GLOW_DOT,
+          left:      "50%",
+          width:     "1.5px",
+          marginLeft:"-0.75px",
+          background: LASER,
+          boxShadow:  GLOW_LINE,
         }}
-        animate={{
-          width:  isHovering ? 18 : isClicking ? 6 : 10,
-          height: isHovering ? 18 : isClicking ? 6 : 10,
-          scale:  isClicking ? 0.7 : 1,
-        }}
-        transition={{ duration: 0.12, ease: "easeOut" }}
       />
 
-      {/* ── "Level" tick marks on the lines (near center) ─────────── */}
-      {/* Left tick */}
-      <motion.div
-        className="fixed pointer-events-none z-[9998]"
+      {/* ── Center target dot ── */}
+      <div
+        className="absolute rounded-full bg-white"
         style={{
-          x,
-          y,
-          translateX: "calc(-50% - 18px)",
-          translateY: "-50%",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          background: LASER,
-          boxShadow: `0 0 4px 2px rgba(255,20,20,0.6)`,
-          opacity: 0.6,
+          width:     7,
+          height:    7,
+          top:       "50%",
+          left:      "50%",
+          marginTop: "-3.5px",
+          marginLeft:"-3.5px",
+          boxShadow:  GLOW_DOT,
         }}
       />
-      {/* Right tick */}
-      <motion.div
-        className="fixed pointer-events-none z-[9998]"
-        style={{
-          x,
-          y,
-          translateX: "calc(-50% + 18px)",
-          translateY: "-50%",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          background: LASER,
-          boxShadow: `0 0 4px 2px rgba(255,20,20,0.6)`,
-          opacity: 0.6,
-        }}
-      />
-      {/* Top tick */}
-      <motion.div
-        className="fixed pointer-events-none z-[9998]"
-        style={{
-          x,
-          y,
-          translateX: "-50%",
-          translateY: "calc(-50% - 18px)",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          background: LASER,
-          boxShadow: `0 0 4px 2px rgba(255,20,20,0.6)`,
-          opacity: 0.6,
-        }}
-      />
-      {/* Bottom tick */}
-      <motion.div
-        className="fixed pointer-events-none z-[9998]"
-        style={{
-          x,
-          y,
-          translateX: "-50%",
-          translateY: "calc(-50% + 18px)",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          background: LASER,
-          boxShadow: `0 0 4px 2px rgba(255,20,20,0.6)`,
-          opacity: 0.6,
-        }}
-      />
-    </>
+    </motion.div>
   );
 }
