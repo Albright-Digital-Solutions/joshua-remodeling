@@ -29,11 +29,11 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden"
           >
-            <div className="h-64 overflow-hidden relative">
+            <div className="h-[480px] overflow-hidden relative">
               <img
                 src="/joshua-sanguineti.jpg"
                 alt="Joshua Sanguineti — Owner of Joshua's Remodeling & Repairs San Antonio TX"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 text-white">
@@ -75,11 +75,11 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden"
           >
-            <div className="h-64 overflow-hidden relative">
+            <div className="h-[480px] overflow-hidden relative">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
                 alt="Julia Wilkinson — Co-Owner"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 text-white">
