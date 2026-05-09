@@ -2,113 +2,114 @@ import { motion } from "motion/react";
 import { ArrowRight, Star, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Video 1: Texas Barndominium exterior tour
-// Video 2: Luxury bathroom sink/fixture installation
-const VIDEOS = [
+// Curated people-free background images
+// Slide 1: Texas-style modern barndominium / farmhouse exterior
+// Slide 2: Luxury bathroom interior with premium fixtures
+const SLIDES = [
   {
-    id: "MckqboqquFI",
-    // Start at 10s to get right into the exterior shot, skip intro
-    start: 10,
-    label: "Barndominium Exterior",
+    url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=90&w=3270&auto=format&fit=crop",
+    alt: "Modern barndominium farmhouse exterior San Antonio TX",
+    label: "Exterior",
+    // Ken Burns: start slightly zoomed in top-left, end slightly zoomed in bottom-right
+    kbStart: "scale(1.12) translate(-2%, -2%)",
+    kbEnd:   "scale(1.0)  translate(0%, 0%)",
   },
   {
-    id: "z4gJAHm3H9g",
-    start: 2,
-    label: "Bathroom Fixture Install",
+    url: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=90&w=3270&auto=format&fit=crop",
+    alt: "Luxury marble bathroom interior with premium fixtures",
+    label: "Interior",
+    kbStart: "scale(1.0)  translate(0%, 0%)",
+    kbEnd:   "scale(1.12) translate(2%, 2%)",
   },
 ];
 
-// Seconds each video shows before crossfading
-const DISPLAY_DURATION = 14000; // 14s
-const FADE_DURATION = 1800;     // 1.8s crossfade
-
-function YoutubeBackground({ videoId, start, visible }: { videoId: string; start: number; visible: boolean }) {
-  const src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&disablekb=1&fs=0&modestbranding=1&rel=0&showinfo=0&start=${start}&iv_load_policy=3&playsinline=1`;
-
-  return (
-    <div
-      className="absolute inset-0 w-full h-full transition-opacity"
-      style={{
-        opacity: visible ? 1 : 0,
-        transitionDuration: `${FADE_DURATION}ms`,
-        transitionTimingFunction: "ease-in-out",
-        zIndex: 0,
-      }}
-    >
-      <iframe
-        src={src}
-        title={`Hero background video`}
-        allow="autoplay; encrypted-media"
-        allowFullScreen={false}
-        className="absolute"
-        style={{
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "calc(100vw + 200px)",
-          height: "calc(100vh + 200px)",
-          minWidth: "177.78vh",
-          minHeight: "56.25vw",
-          pointerEvents: "none",
-          border: "none",
-        }}
-      />
-    </div>
-  );
-}
+const DISPLAY_MS   = 9000;  // 9s per slide
+const CROSSFADE_MS = 1800;  // 1.8s crossfade
 
 export function Hero() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIdx, setActiveIdx]     = useState(0);
+  const [prevIdx, setPrevIdx]         = useState<number | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % VIDEOS.length);
-    }, DISPLAY_DURATION);
-    return () => clearInterval(interval);
-  }, []);
+    const timer = setInterval(() => {
+      setIsTransitioning(true);
+      setPrevIdx(activeIdx);
+      const next = (activeIdx + 1) % SLIDES.length;
+      setTimeout(() => {
+        setActiveIdx(next);
+        setIsTransitioning(false);
+        setPrevIdx(null);
+      }, CROSSFADE_MS);
+    }, DISPLAY_MS);
+    return () => clearInterval(timer);
+  }, [activeIdx]);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-gray-900">
 
-      {/* ── Video Backgrounds ── */}
-      <div className="absolute inset-0 z-0 bg-gray-900">
-        {VIDEOS.map((v, i) => (
-          <YoutubeBackground
-            key={v.id}
-            videoId={v.id}
-            start={v.start}
-            visible={i === activeIndex}
+      {/* ── Background Slides ── */}
+      <div className="absolute inset-0 z-0">
+
+        {/* Previous slide (fades out) */}
+        {prevIdx !== null && (
+          <div
+            className="absolute inset-0 transition-opacity"
+            style={{
+              opacity: isTransitioning ? 0 : 1,
+              transitionDuration: `${CROSSFADE_MS}ms`,
+            }}
+          >
+            <img
+              src={SLIDES[prevIdx].url}
+              alt={SLIDES[prevIdx].alt}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ transform: SLIDES[prevIdx].kbEnd }}
+            />
+          </div>
+        )}
+
+        {/* Active slide (Ken Burns pan+zoom) */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            key={activeIdx}
+            src={SLIDES[activeIdx].url}
+            alt={SLIDES[activeIdx].alt}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              animation: `kenBurns ${DISPLAY_MS + CROSSFADE_MS}ms ease-in-out forwards`,
+              transformOrigin: "center center",
+            }}
           />
-        ))}
+        </div>
 
-        {/* Dark overlay — stronger on left for text legibility */}
+        {/* Dark overlays for text legibility */}
         <div
           className="absolute inset-0 z-10"
           style={{
             background:
-              "linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 50%, rgba(17,24,39,0.45) 100%)",
+              "linear-gradient(to right, rgba(17,24,39,0.90) 0%, rgba(17,24,39,0.70) 50%, rgba(17,24,39,0.40) 100%)",
           }}
         />
-
-        {/* Bottom fade to blend into next section */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-32 z-10"
-          style={{ background: "linear-gradient(to bottom, transparent, rgba(17,24,39,0.6))" }}
+          className="absolute bottom-0 left-0 right-0 h-40 z-10"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(17,24,39,0.55))" }}
         />
       </div>
 
-      {/* ── Video indicator dots ── */}
+      {/* ── Dot Indicators ── */}
       <div className="absolute bottom-8 right-8 z-20 flex gap-2">
-        {VIDEOS.map((_, i) => (
+        {SLIDES.map((_, i) => (
           <button
             key={i}
-            onClick={() => setActiveIndex(i)}
-            className="w-2 h-2 rounded-full transition-all duration-300"
+            onClick={() => setActiveIdx(i)}
+            aria-label={`Slide ${i + 1}`}
+            className="rounded-full transition-all duration-300"
             style={{
-              background: i === activeIndex ? "#f97316" : "rgba(255,255,255,0.4)",
-              transform: i === activeIndex ? "scale(1.4)" : "scale(1)",
+              width:  i === activeIdx ? "24px" : "8px",
+              height: "8px",
+              background: i === activeIdx ? "#f97316" : "rgba(255,255,255,0.4)",
             }}
-            aria-label={`Switch to video ${i + 1}`}
           />
         ))}
       </div>
@@ -125,11 +126,9 @@ export function Hero() {
             className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 w-fit mb-6"
           >
             <div className="flex text-yellow-400">
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-current" />
+              ))}
             </div>
             <span className="text-white text-sm font-medium tracking-wide">5.0 Rating · 15 Reviews · San Antonio</span>
           </motion.div>
@@ -156,7 +155,7 @@ export function Hero() {
             businesses across Bexar County.
           </motion.p>
 
-          {/* NAP — SEO: prominent phone in first 100 words */}
+          {/* NAP — prominent for local SEO */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -212,9 +211,16 @@ export function Hero() {
               <div className="w-2 h-2 rounded-full bg-green-500"></div> 100% Satisfaction
             </div>
           </motion.div>
-
         </div>
       </div>
+
+      {/* Ken Burns keyframe animation */}
+      <style>{`
+        @keyframes kenBurns {
+          from { transform: scale(1.10) translate(-1.5%, -1.5%); }
+          to   { transform: scale(1.0)  translate(0%, 0%); }
+        }
+      `}</style>
     </section>
   );
 }
