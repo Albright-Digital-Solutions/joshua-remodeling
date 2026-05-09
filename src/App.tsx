@@ -20,6 +20,9 @@ import { SplashScreen } from './components/SplashScreen';
 import { AboutPage } from './pages/AboutPage';
 import { ReviewsPage } from './pages/ReviewsPage';
 import { GalleryPage } from './pages/GalleryPage';
+import { ContactPage } from './pages/ContactPage';
+import { TermsPage } from './pages/TermsPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 import { DrywallPainting } from './pages/services/DrywallPainting';
 import { MinorPlumbing } from './pages/services/MinorPlumbing';
 import { FixtureInstallation } from './pages/services/FixtureInstallation';
@@ -73,6 +76,9 @@ function AnimatedRoutes() {
         <Route path="/services/carpentry-woodwork" element={<PageTransition><CarpentryWoodwork /></PageTransition>} />
         <Route path="/services/rental-make-ready" element={<PageTransition><RentalMakeReady /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><GalleryPage /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+        <Route path="/terms"   element={<PageTransition><TermsPage /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><PrivacyPage /></PageTransition>} />
         <Route path="/services/window-door-repair" element={<PageTransition><WindowDoorRepair /></PageTransition>} />
       </Routes>
     </AnimatePresence>

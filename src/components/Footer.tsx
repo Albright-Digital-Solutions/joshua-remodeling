@@ -100,13 +100,15 @@ export function Footer() {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Joshua's Remodeling & Repairs. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="https://joshua-remodeling.com/privacy-policy-2/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-sm">Privacy Policy</a>
+          <div className="flex flex-wrap gap-6">
+            <Link to="/privacy" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms"   className="text-gray-500 hover:text-white text-sm transition-colors">Terms &amp; Conditions</Link>
+            <Link to="/contact" className="text-gray-500 hover:text-white text-sm transition-colors">Contact Us</Link>
             <a
               href="https://clienthub.getjobber.com/client_hubs/5ea9918f-922b-472b-a8e5-99ddc2b28f09/login/new?source=share_login"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white text-sm"
+              className="text-gray-500 hover:text-white text-sm transition-colors"
             >
               Client Hub
             </a>
