@@ -31,8 +31,8 @@ export function About() {
           >
             <div className="h-64 overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop"
-                alt="Joshua Sanguineti — Owner"
+                src="/joshua-sanguineti.jpg"
+                alt="Joshua Sanguineti — Owner of Joshua's Remodeling & Repairs San Antonio TX"
                 className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
