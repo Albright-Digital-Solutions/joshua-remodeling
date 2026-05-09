@@ -20,7 +20,7 @@ const services = [
     title: "Fixture Installation",
     description: "Installing ceiling fans, light fixtures, cabinet hardware, and TV mounts.",
     icon: Wrench,
-    image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=800&auto=format&fit=crop",
+    image: "/fixture-ceiling-fan.jpg",
     href: "/services/fixture-installation"
   },
   {

@@ -38,7 +38,7 @@ export function FixtureInstallation() {
       city="San Antonio, TX"
       metaDescription="Professional fixture installation in San Antonio TX — ceiling fans, light fixtures, TV mounts, cabinet hardware, and more. Licensed & insured. Free estimate: (210) 992-5170."
       description="Expert installation of ceiling fans, light fixtures, TV mounts, cabinet hardware, and more for San Antonio homeowners. Fast scheduling, professional results, every time."
-      heroImage="https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=2670&auto=format&fit=crop"
+      heroImage="/fixture-ceiling-fan.jpg"
       icon={<Wrench className="w-8 h-8 text-white" />}
       schemaServiceType="Fixture Installation"
       benefits={[
