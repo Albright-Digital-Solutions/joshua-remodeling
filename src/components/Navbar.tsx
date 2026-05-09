@@ -29,6 +29,7 @@ export function Navbar() {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="text-gray-600 hover:text-orange-600 font-medium transition-colors">Home</Link>
             <div className="relative group">
               <Link to="/#services" className="flex items-center gap-1 text-gray-600 hover:text-orange-600 font-medium transition-colors py-2">
                 Services <ChevronDown className="w-4 h-4" />
@@ -80,6 +81,7 @@ export function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-2 shadow-xl overflow-y-auto max-h-[80vh]"
         >
+          <Link to="/" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-orange-50 hover:text-orange-600 rounded-md">Home</Link>
           <div className="space-y-1">
             <button 
               onClick={() => setIsServicesOpen(!isServicesOpen)}
