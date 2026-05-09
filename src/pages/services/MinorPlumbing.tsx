@@ -34,13 +34,13 @@ const faqs = [
 export function MinorPlumbing() {
   return (
     <ServicePageLayout
-      title="Minor Plumbing"
+      title="Plumbing Repairs & Fixtures"
       city="San Antonio, TX"
       metaDescription="Minor plumbing repair services in San Antonio TX — faucet replacement, toilet repair, leak fixes, and drain clearing. Licensed & insured. Call Joshua's Remodeling at (210) 992-5170."
       description="Fast, reliable minor plumbing repairs for San Antonio homeowners and landlords. Faucet replacement, toilet repair, leak fixes, and drain clearing — handled by licensed, insured professionals."
       heroImage="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2670&auto=format&fit=crop"
       icon={<Droplets className="w-8 h-8 text-white" />}
-      schemaServiceType="Minor Plumbing Repair"
+      schemaServiceType="Plumbing Repairs and Fixture Installation"
       benefits={[
         "Quick resolution of leaks, clogs, and running toilets",
         "Faucet & fixture upgrades to modernize your space",
@@ -53,7 +53,7 @@ export function MinorPlumbing() {
       content={
         <>
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Minor Plumbing Repair Services in San Antonio, TX
+            Plumbing Repair & Fixture Services in San Antonio, TX
           </h2>
           <p className="mb-6">
             Plumbing problems don't wait for a convenient time. A dripping faucet, running toilet, or slow drain can

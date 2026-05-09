@@ -47,7 +47,7 @@ export function Footer() {
             <h3 className="text-lg font-bold mb-6 font-display">Our Services</h3>
             <ul className="space-y-3">
               <li><Link to="/services/drywall-painting" className="text-gray-400 hover:text-orange-500 transition-colors">Drywall & Painting</Link></li>
-              <li><Link to="/services/minor-plumbing" className="text-gray-400 hover:text-orange-500 transition-colors">Minor Plumbing</Link></li>
+              <li><Link to="/services/minor-plumbing" className="text-gray-400 hover:text-orange-500 transition-colors">Plumbing Repairs &amp; Fixtures</Link></li>
               <li><Link to="/services/fixture-installation" className="text-gray-400 hover:text-orange-500 transition-colors">Fixture Installation</Link></li>
               <li><Link to="/services/carpentry-woodwork" className="text-gray-400 hover:text-orange-500 transition-colors">Carpentry & Woodwork</Link></li>
               <li><Link to="/services/rental-make-ready" className="text-gray-400 hover:text-orange-500 transition-colors">Rental Make-Ready</Link></li>

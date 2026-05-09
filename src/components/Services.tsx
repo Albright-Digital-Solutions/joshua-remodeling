@@ -10,7 +10,7 @@ const services = [
     href: "/services/drywall-painting"
   },
   {
-    title: "Minor Plumbing",
+    title: "Plumbing Repairs & Fixtures",
     description: "Faucet replacement, toilet repair, fixing leaks, and clearing simple clogs.",
     icon: Droplets,
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop",

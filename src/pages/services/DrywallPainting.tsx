@@ -5,7 +5,7 @@ const relatedServices = [
   { name: "Carpentry & Woodwork", path: "/services/carpentry-woodwork" },
   { name: "Fixture Installation", path: "/services/fixture-installation" },
   { name: "Rental Make-Ready", path: "/services/rental-make-ready" },
-  { name: "Minor Plumbing", path: "/services/minor-plumbing" },
+  { name: "Plumbing Repairs & Fixtures", path: "/services/minor-plumbing" },
 ];
 
 const faqs = [

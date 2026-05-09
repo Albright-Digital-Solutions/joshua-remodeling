@@ -3,7 +3,7 @@ import { ServicePageLayout } from "./ServicePageLayout";
 
 const relatedServices = [
   { name: "Drywall & Painting", path: "/services/drywall-painting" },
-  { name: "Minor Plumbing", path: "/services/minor-plumbing" },
+  { name: "Plumbing Repairs & Fixtures", path: "/services/minor-plumbing" },
   { name: "Fixture Installation", path: "/services/fixture-installation" },
   { name: "Carpentry & Woodwork", path: "/services/carpentry-woodwork" },
 ];

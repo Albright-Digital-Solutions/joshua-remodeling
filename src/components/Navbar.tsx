@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const serviceLinks = [
   { name: "Drywall & Painting", path: "/services/drywall-painting" },
-  { name: "Minor Plumbing", path: "/services/minor-plumbing" },
+  { name: "Plumbing Repairs & Fixtures", path: "/services/minor-plumbing" },
   { name: "Fixture Installation", path: "/services/fixture-installation" },
   { name: "Carpentry & Woodwork", path: "/services/carpentry-woodwork" },
   { name: "Rental Make-Ready", path: "/services/rental-make-ready" },
