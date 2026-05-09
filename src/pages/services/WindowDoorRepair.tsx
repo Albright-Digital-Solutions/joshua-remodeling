@@ -38,7 +38,7 @@ export function WindowDoorRepair() {
       city="San Antonio, TX"
       metaDescription="Window and door repair services in San Antonio TX — broken panes, sticking doors, screen repair, weatherstripping, and door installation. Licensed & insured. Call (210) 992-5170."
       description="Professional window and door repair services for San Antonio homeowners. Broken panes, sticking doors, screen replacement, weatherstripping, and full door installation."
-      heroImage="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2670&auto=format&fit=crop"
+      heroImage="/window-door-installation.jpg"
       icon={<Frame className="w-8 h-8 text-white" />}
       schemaServiceType="Window and Door Repair"
       benefits={[

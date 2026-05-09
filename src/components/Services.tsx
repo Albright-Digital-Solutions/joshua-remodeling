@@ -41,7 +41,7 @@ const services = [
     title: "Window & Door Repair",
     description: "Replacing broken panes, adjusting sticking doors, and hardware replacements.",
     icon: Frame,
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop",
+    image: "/window-door-installation.jpg",
     href: "/services/window-door-repair"
   }
 ];
