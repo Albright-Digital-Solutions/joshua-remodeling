@@ -19,6 +19,7 @@ import { SplashScreen } from './components/SplashScreen';
 // Pages
 import { AboutPage } from './pages/AboutPage';
 import { ReviewsPage } from './pages/ReviewsPage';
+import { GalleryPage } from './pages/GalleryPage';
 import { DrywallPainting } from './pages/services/DrywallPainting';
 import { MinorPlumbing } from './pages/services/MinorPlumbing';
 import { FixtureInstallation } from './pages/services/FixtureInstallation';
@@ -71,6 +72,7 @@ function AnimatedRoutes() {
         <Route path="/services/fixture-installation" element={<PageTransition><FixtureInstallation /></PageTransition>} />
         <Route path="/services/carpentry-woodwork" element={<PageTransition><CarpentryWoodwork /></PageTransition>} />
         <Route path="/services/rental-make-ready" element={<PageTransition><RentalMakeReady /></PageTransition>} />
+        <Route path="/gallery" element={<PageTransition><GalleryPage /></PageTransition>} />
         <Route path="/services/window-door-repair" element={<PageTransition><WindowDoorRepair /></PageTransition>} />
       </Routes>
     </AnimatePresence>

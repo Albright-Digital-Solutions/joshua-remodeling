@@ -52,7 +52,7 @@ export function Navbar() {
             </div>
             <Link to="/about" className="text-gray-600 hover:text-orange-600 font-medium transition-colors">About Us</Link>
             <Link to="/reviews" className="text-gray-600 hover:text-orange-600 font-medium transition-colors">Reviews</Link>
-            <Link to="/#gallery" className="text-gray-600 hover:text-orange-600 font-medium transition-colors">Gallery</Link>
+            <Link to="/gallery" className="text-gray-600 hover:text-orange-600 font-medium transition-colors">Gallery</Link>
             <div className="flex items-center gap-4 ml-6">
               <a href="tel:+12109925170" className="flex items-center gap-2 text-gray-900 font-bold hover:text-orange-600 transition-colors">
                 <Phone className="w-5 h-5 text-orange-600" />
@@ -108,7 +108,7 @@ export function Navbar() {
           </div>
           <Link to="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-orange-50 hover:text-orange-600 rounded-md">About Us</Link>
           <Link to="/reviews" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-orange-50 hover:text-orange-600 rounded-md">Reviews</Link>
-          <Link to="/#gallery" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-orange-50 hover:text-orange-600 rounded-md">Gallery</Link>
+          <Link to="/gallery" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-orange-50 hover:text-orange-600 rounded-md">Gallery</Link>
           <div className="mt-4 pt-4 flex flex-col gap-3 border-t border-gray-100">
              <a href="tel:+12109925170" className="flex items-center justify-center gap-2 text-gray-900 font-bold border border-gray-200 py-3 rounded-lg">
                 <Phone className="w-5 h-5" />
