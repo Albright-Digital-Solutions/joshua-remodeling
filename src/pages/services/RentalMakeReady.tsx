@@ -38,7 +38,7 @@ export function RentalMakeReady() {
       city="San Antonio, TX"
       metaDescription="Rental make-ready services in San Antonio TX for landlords and property managers. Fast turnaround, full punch-list completion. One call handles it all. (210) 992-5170."
       description="San Antonio's go-to rental make-ready service for landlords and property managers. Minimize vacancy with fast, comprehensive unit turnovers across Bexar County."
-      heroImage="https://images.unsplash.com/photo-1628192203649-65cf8fa32bda?q=80&w=2670&auto=format&fit=crop"
+      heroImage="/rental-floor-replacement.jpg"
       icon={<Home className="w-8 h-8 text-white" />}
       schemaServiceType="Rental Property Make-Ready and Maintenance"
       benefits={[
