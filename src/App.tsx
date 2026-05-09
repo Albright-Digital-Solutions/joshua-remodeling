@@ -8,11 +8,12 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
-import { About } from './components/About';
+import { OurStory } from './components/OurStory';
 import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
 
 // Pages
+import { AboutPage } from './pages/AboutPage';
 import { DrywallPainting } from './pages/services/DrywallPainting';
 import { MinorPlumbing } from './pages/services/MinorPlumbing';
 import { FixtureInstallation } from './pages/services/FixtureInstallation';
@@ -35,7 +36,7 @@ function Home() {
     <>
       <Hero />
       <Services />
-      <About />
+      <OurStory />
       <Testimonials />
     </>
   );
@@ -50,6 +51,7 @@ export default function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/services/drywall-painting" element={<DrywallPainting />} />
             <Route path="/services/minor-plumbing" element={<MinorPlumbing />} />
             <Route path="/services/fixture-installation" element={<FixtureInstallation />} />

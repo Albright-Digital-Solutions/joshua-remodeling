@@ -1,12 +1,5 @@
 import { motion } from "motion/react";
-import { Heart, Globe, CheckCircle2, ArrowRight } from "lucide-react";
-
-const values = [
-  "Trust, Transparency & Respect",
-  "Licensed & Insured Professionals",
-  "Lasting Solutions — Not Temporary Fixes",
-  "Clear Communication from Start to Finish",
-];
+import { Heart, Globe, ArrowRight } from "lucide-react";
 
 export function About() {
   return (
@@ -15,31 +8,14 @@ export function About() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <p className="text-orange-600 font-bold uppercase tracking-wider text-sm mb-3">Our Story</p>
+          <p className="text-orange-600 font-bold uppercase tracking-wider text-sm mb-3">Meet the Team</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Family-Built. Community-Driven.
+            The People Behind Every Project
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Joshua's Remodeling & Repair was built on values passed down through generations — quality craftsmanship,
-            honest relationships, and a genuine commitment to making your house a home.
+            Joshua's Remodeling &amp; Repair is a family business built on trust, craftsmanship, and a genuine
+            passion for serving the San Antonio community.
           </p>
-        </div>
-
-        {/* Core Values Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
-          {values.map((value, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex items-start gap-3 bg-white rounded-2xl p-5 shadow-sm border border-gray-100"
-            >
-              <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-800 font-medium text-sm">{value}</span>
-            </motion.div>
-          ))}
         </div>
 
         {/* Owner Profiles */}
@@ -67,9 +43,9 @@ export function About() {
             </div>
             <div className="p-8">
               <p className="text-gray-600 leading-relaxed mb-5">
-                Welcome to Joshua's Remodeling & Repairs! My name is Josh, and I'm thrilled to introduce you to our
-                dedicated team. At Joshua's Remodeling & Repair, our core mission is to simplify your life by providing
-                a service that is not only reliable but also efficient and genuinely friendly.
+                Welcome to Joshua's Remodeling &amp; Repairs! My name is Josh, and I'm thrilled to introduce you to our
+                dedicated team. At Joshua's Remodeling &amp; Repair, our core mission is to simplify your life by
+                providing a service that is not only reliable but also efficient and genuinely friendly.
               </p>
               <p className="text-gray-600 leading-relaxed mb-5">
                 The inspiration for this journey began eight years ago when I worked alongside my grandfather in his
@@ -77,11 +53,16 @@ export function About() {
                 outstanding quality and nurturing strong relationships with clients. Trust, transparency, and respect
                 are the cornerstones of our approach, and these values remain at the heart of everything we do.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed mb-5">
                 As I now run my own business, I feel a profound sense of responsibility to instill these principles in
                 future generations — particularly my sons and their sons. Our unwavering commitment to excellence drives
                 us to utilize only the finest materials and most effective techniques, ensuring that results are not
                 temporary fixes, but lasting solutions.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Let us partner with you in transforming your house into a warm and inviting home that reflects your
+                unique style and needs. Our services range from minor repairs to extensive renovations, so regardless
+                of the project size, we bring the same level of dedication and craftsmanship.
               </p>
             </div>
           </motion.div>
@@ -124,8 +105,9 @@ export function About() {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 With a passion for helping people feel safe and comfortable in their homes, Julia sees Joshua's
-                Remodeling & Repair not just as a business — but as a way to build trust, solve problems, and make
-                life a little easier for families in her community.
+                Remodeling &amp; Repair not just as a business — but as a way to build trust, solve problems, and make
+                life a little easier for families in her community. When she's not coordinating projects or
+                brainstorming better ways to serve clients, Julia enjoys spending time with her family.
               </p>
             </div>
           </motion.div>
