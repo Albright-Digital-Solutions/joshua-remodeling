@@ -14,6 +14,7 @@ import { Testimonials } from './components/Testimonials';
 import { ReviewBanner } from './components/ReviewBanner';
 import { Footer } from './components/Footer';
 import { Cursor } from './components/Cursor';
+import { SplashScreen } from './components/SplashScreen';
 
 // Pages
 import { AboutPage } from './pages/AboutPage';
@@ -77,13 +78,18 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  const [splashReady, setSplashReady] = useState(false);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      {/* Custom cursor — desktop only via CSS */}
       <Cursor />
+      <SplashScreen onComplete={() => setSplashReady(true)} />
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        {/* Hide navbar until splash finishes so logo doesn't appear in two places */}
+        <div style={{ visibility: splashReady ? 'visible' : 'hidden' }}>
+          <Navbar />
+        </div>
         <main className="flex-grow">
           <AnimatedRoutes />
         </main>
