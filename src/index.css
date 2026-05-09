@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,13 +6,60 @@
   --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ── Global ─────────────────────────────────────────────────────────────── */
+
 body {
   font-family: var(--font-sans);
   background-color: #FAFAFA;
   color: #111827;
   -webkit-font-smoothing: antialiased;
+  /* Hide native cursor on desktop so our custom cursor shows */
+  cursor: none;
+}
+
+/* Restore cursor inside iframes (YouTube etc.) */
+iframe { cursor: auto; }
+
+/* Restore cursor on mobile — custom cursor is desktop-only */
+@media (hover: none) or (pointer: coarse) {
+  body { cursor: auto; }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
+
+/* ── Smooth scroll ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Selection highlight ────────────────────────────────────────────────── */
+::selection {
+  background: #f97316;
+  color: #fff;
+}
+
+/* ── Scrollbar styling ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #ea6c00; }
+
+/* ── Cursor — hide on all interactive elements (custom cursor handles it) ── */
+a, button, [role="button"], label, input, select, textarea, [data-cursor-hover] {
+  cursor: none;
+}
+
+@media (hover: none) or (pointer: coarse) {
+  a, button, [role="button"], label, input, select, textarea { cursor: auto; }
+}
+
+/* ── Page transition wrapper ────────────────────────────────────────────── */
+.page-enter { opacity: 0; transform: translateY(12px); }
+.page-enter-active { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+.page-exit { opacity: 1; }
+.page-exit-active { opacity: 0; transition: opacity 0.25s ease; }
+
+/* ── Will-change hint for animated elements ─────────────────────────────── */
+.will-change-transform { will-change: transform; }
