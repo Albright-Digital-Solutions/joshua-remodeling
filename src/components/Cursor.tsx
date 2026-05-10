@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue } from "motion/react";
 
+// Only show on devices with a real mouse (not touch screens / mobile)
+const HAS_MOUSE = typeof window !== "undefined"
+  && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 const SIZE      = 60;    // ~dime size in px
 const LASER     = "#ff2020";
 const GLOW_LINE = `0 0 3px 1px rgba(255,20,20,0.9), 0 0 8px 3px rgba(255,20,20,0.4)`;
@@ -46,7 +50,8 @@ export function Cursor() {
     };
   }, []);
 
-  if (!isVisible) return null;
+  if (!HAS_MOUSE)  return null;
+  if (!isVisible)  return null;
 
   const scale = isClicking ? 0.85 : isHovering ? 1.18 : 1;
   const size  = SIZE * scale;
